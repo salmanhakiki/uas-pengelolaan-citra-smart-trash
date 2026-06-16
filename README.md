@@ -8,7 +8,7 @@ Sistem klasifikasi sampah cerdas (Organik & Anorganik) berbasis web-dashboard ya
 
 ---
 
-## ✨ Fitur Utama
+##  Fitur Utama
 
 1. **Klasifikasi DEEP LEARN (Hybrid Approach)**
    - Menggunakan model *Deep Learning* **YOLOv8** (`yolov8n.pt`) yang dioptimasi untuk mendeteksi berbagai objek sampah dengan latensi rendah.
@@ -30,13 +30,30 @@ Sistem klasifikasi sampah cerdas (Organik & Anorganik) berbasis web-dashboard ya
 
 ---
 
-## 🏗️ Arsitektur Perangkat Keras (Hardware)
+##  Arsitektur Perangkat Keras (Hardware)
 
 * **Mikrokontroler:** ESP8266 (NodeMCU / Wemos D1 Mini)
 * **Aktuator:** Motor Servo (Beroperasi pada rentang 0° hingga 180° untuk membuka flap sampah)
 * **Indikator:** Layar LCD I2C (16x2) dan Buzzer (sebagai notifikasi audio)
 * **Baud Rate Serial:** 115200 bps
 
+
+Cara Menjalankan Aplikasi
+Karena proyek ini dibagi menjadi dua bagian arsip untuk kemudahan pengunduhan, ikuti langkah berikut untuk menyiapkannya:
+
+Ekstraksi: Unduh kedua bagian arsip proyek (Part 1 dan Part 2), lalu ekstrak keduanya ke dalam satu folder yang sama (misalnya: Tugas Smart-trash). Pastikan semua file bergabung kembali ke struktur direktori aslinya.
+
+Persiapan: Pastikan Anda telah menginstal Python (disarankan versi 3.9 - 3.11).
+
+Menjalankan Program:
+
+Masuk ke folder hasil ekstraksi.
+
+Temukan file bernama run_app.bat.
+
+Klik dua kali (double-click) pada file run_app.bat tersebut untuk menjalankan server lokal Streamlit secara otomatis.
+
+Tunggu hingga terminal terbuka dan browser Anda menampilkan dashboard aplikasi secara otomatis.
 ---
 
 ## 📂 Struktur Direktori
