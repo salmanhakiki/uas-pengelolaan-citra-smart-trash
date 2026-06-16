@@ -1,20 +1,17 @@
-# ♻️ Smart Trash Sorter: Sistem Pemilah Sampah Cerdas Berbasis Computer Vision & IoT
+# ♻️ TrashVision: Real-Time Smart Trash Classifier
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-Framework-FF4B4B.svg)](https://streamlit.io/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-EfficientNetB0-FF6F00.svg)](https://www.tensorflow.org/)
-[![ESP8266](https://img.shields.io/badge/IoT-ESP8266-success.svg)](https://www.espressif.com/)
+[![Python Version](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11-blue)](https://www.python.org/)
+[![Framework](https://img.shields.io/badge/backend-PyTorch%20%7C%20Ultralytics-ee4c2c)](https://pytorch.org/)
+[![Frontend](https://img.shields.io/badge/ui-Streamlit-ff4b4b)](https://streamlit.io/)
 
-Proyek ini dikembangkan sebagai pemenuhan Tugas Akhir / UAS mata kuliah **Pengelolaan Citra Digital**. 
-
-Sistem ini merupakan purwarupa tempat sampah pintar yang mengintegrasikan pemrosesan citra digital (*Computer Vision*), kecerdasan buatan (*Deep Learning*), dan *Internet of Things* (IoT). Sistem mampu mengklasifikasikan jenis sampah (Organik vs Anorganik) melalui tangkapan kamera dan secara otomatis menggerakkan pintu tempat sampah yang sesuai menggunakan mikrokontroler.
+Sistem klasifikasi sampah cerdas (Organik & Anorganik) berbasis web-dashboard yang dirancang untuk kebutuhan pemilahan sampah otomatis secara *real-time*. Sistem ini menggabungkan model *Deep Learning* **YOLOv8** dengan *fallback system* berbasis **HSV** untuk akurasi deteksi material yang optimal.
 
 ---
 
 ## ✨ Fitur Utama
 
 1. **Klasifikasi AI Presisi Tinggi (Hybrid Approach)**
-   - Menggunakan model *Deep Learning* **EfficientNetB0** (Pre-trained ImageNet) yang dioptimasi untuk mendeteksi berbagai objek sampah.
+   - Menggunakan model *Deep Learning* **YOLOv8** (`yolov8n.pt`) yang dioptimasi untuk mendeteksi berbagai objek sampah dengan latensi rendah.
    - Dilengkapi *fallback system* menggunakan heuristik ruang warna **HSV** untuk menganalisis material (seperti warna hijau/coklat untuk organik, dan warna transparan/abu untuk anorganik).
    - Implementasi *Multi-crop voting* (Full, 80% Center, 60% Center) untuk meningkatkan akurasi deteksi ROI (*Region of Interest*).
 
@@ -45,9 +42,16 @@ Sistem ini merupakan purwarupa tempat sampah pintar yang mengintegrasikan pemros
 ## 📂 Struktur Direktori
 
 ```text
-📁 uas-pengelolaan-citra-smart-trash/
-├── 📄 final.py              # Skrip utama antarmuka Streamlit (UI & Pipeline)
-├── 📄 classifier.py         # Modul AI (EfficientNetB0, HSV Masking, Preprocessing)
-├── 📄 serial_comm.py        # Modul komunikasi serial Python <-> ESP8266
-├── 📄 smart_trash.ino       # Source code C++ untuk di-upload ke ESP8266
-└── 📄 Jalankan_Aplikasi.bat # Script batch untuk otomatisasi eksekusi server lokal
+📁 Tugas Smart-trash/
+├── 📄 app.py                     # Skrip utama antarmuka Streamlit (UI & Pipeline)
+├── 📄 smart_classifier.py        # Modul AI (YOLOv8 Inference, HSV Masking, Preprocessing)
+├── 📄 waste_knowledge_base.py    # Database pemetaan material sampah
+├── 📄 serial_comm.py             # Modul komunikasi serial Python <-> ESP8266
+├── 📄 yolov8n.pt                 # File pre-trained model YOLOv8 Nano
+├── 📄 download_weights.py        # Skrip Python pengunduh bobot AI
+├── 📄 download_massive_data.py   # Skrip pengunduh dataset masif
+├── 📄 requirements.txt           # Dependensi library Python
+├── 📄 run_app.bat                # Script batch untuk otomatisasi eksekusi server lokal (Streamlit)
+├── 📄 setup.bat                  # Script batch untuk setup awal environment
+├── 📄 download_weights.bat       # Script batch pendukung unduh bobot
+└── 📁 __pycache__/               # Cache eksekusi Python
