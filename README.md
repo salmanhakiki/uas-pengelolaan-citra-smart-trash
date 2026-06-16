@@ -10,7 +10,7 @@ Sistem klasifikasi sampah cerdas (Organik & Anorganik) berbasis web-dashboard ya
 
 ## ✨ Fitur Utama
 
-1. **Klasifikasi AI Presisi Tinggi (Hybrid Approach)**
+1. **Klasifikasi DEEP LEARN (Hybrid Approach)**
    - Menggunakan model *Deep Learning* **YOLOv8** (`yolov8n.pt`) yang dioptimasi untuk mendeteksi berbagai objek sampah dengan latensi rendah.
    - Dilengkapi *fallback system* menggunakan heuristik ruang warna **HSV** untuk menganalisis material (seperti warna hijau/coklat untuk organik, dan warna transparan/abu untuk anorganik).
    - Implementasi *Multi-crop voting* (Full, 80% Center, 60% Center) untuk meningkatkan akurasi deteksi ROI (*Region of Interest*).
